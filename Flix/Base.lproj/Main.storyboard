@@ -130,34 +130,44 @@
                                 <rect key="frame" x="16" y="154" width="97.5" height="145"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="byd-h4-Eq7">
+                                <rect key="frame" x="135" y="242.5" width="214" height="35"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-XA-wkl">
                                 <rect key="frame" x="16" y="323" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="byd-h4-Eq7">
-                                <rect key="frame" x="135" y="242.5" width="214" height="56.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-9l-4Ae">
+                                <rect key="frame" x="16" y="576" width="343" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Watch Trailer 🎬">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LBz-sX-EPO"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LBz-sX-EPO" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FlP-XA-wkl" secondAttribute="bottom" constant="185" id="3eu-7u-4Oh"/>
                             <constraint firstItem="LBz-sX-EPO" firstAttribute="trailing" secondItem="dcA-kX-v0w" secondAttribute="trailing" id="41g-Cr-Eec"/>
                             <constraint firstItem="LBz-sX-EPO" firstAttribute="trailing" secondItem="FlP-XA-wkl" secondAttribute="trailing" constant="16" id="7Gj-c6-VD0"/>
                             <constraint firstItem="0Bd-h3-Ff1" firstAttribute="centerY" secondItem="dcA-kX-v0w" secondAttribute="baseline" id="CcM-qw-zS5"/>
                             <constraint firstItem="0Bd-h3-Ff1" firstAttribute="width" secondItem="LBz-sX-EPO" secondAttribute="width" multiplier="0.26" id="DJf-5l-W0N"/>
-                            <constraint firstItem="byd-h4-Eq7" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0Bd-h3-Ff1" secondAttribute="bottom" id="Eqg-mf-nCL"/>
+                            <constraint firstItem="byd-h4-Eq7" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="0Bd-h3-Ff1" secondAttribute="bottom" priority="250" id="Eqg-mf-nCL"/>
+                            <constraint firstItem="7lm-9l-4Ae" firstAttribute="leading" secondItem="LBz-sX-EPO" secondAttribute="leading" constant="16" id="GSF-kE-R18"/>
                             <constraint firstItem="dcA-kX-v0w" firstAttribute="width" secondItem="LBz-sX-EPO" secondAttribute="width" id="GfX-ES-q7I"/>
+                            <constraint firstItem="LBz-sX-EPO" firstAttribute="bottom" secondItem="7lm-9l-4Ae" secondAttribute="bottom" constant="39" id="Gye-2K-e05"/>
                             <constraint firstItem="byd-h4-Eq7" firstAttribute="top" secondItem="dcA-kX-v0w" secondAttribute="bottom" constant="16" id="TrV-D4-Vbx"/>
                             <constraint firstItem="byd-h4-Eq7" firstAttribute="leading" secondItem="0Bd-h3-Ff1" secondAttribute="trailing" constant="21.5" id="Xy5-bd-Ywv"/>
                             <constraint firstItem="dcA-kX-v0w" firstAttribute="top" secondItem="LBz-sX-EPO" secondAttribute="top" id="YEV-7w-vts"/>
                             <constraint firstItem="0Bd-h3-Ff1" firstAttribute="height" secondItem="LBz-sX-EPO" secondAttribute="height" multiplier="0.224111" id="f6z-tq-5e7"/>
                             <constraint firstItem="FlP-XA-wkl" firstAttribute="top" secondItem="0Bd-h3-Ff1" secondAttribute="bottom" constant="24" id="fYL-ts-Na4"/>
+                            <constraint firstItem="LBz-sX-EPO" firstAttribute="trailing" secondItem="7lm-9l-4Ae" secondAttribute="trailing" constant="16" id="lNL-MN-o75"/>
                             <constraint firstItem="dcA-kX-v0w" firstAttribute="height" secondItem="LBz-sX-EPO" secondAttribute="height" multiplier="0.35" id="ox9-Pb-kyJ"/>
                             <constraint firstItem="FlP-XA-wkl" firstAttribute="leading" secondItem="LBz-sX-EPO" secondAttribute="leading" constant="16" id="p2w-Rc-GR2"/>
                             <constraint firstItem="dcA-kX-v0w" firstAttribute="leading" secondItem="LBz-sX-EPO" secondAttribute="leading" id="pUe-qA-JzM"/>
@@ -171,6 +181,7 @@
                         <outlet property="posterView" destination="0Bd-h3-Ff1" id="dRt-Ac-TCK"/>
                         <outlet property="synopsisLabel" destination="FlP-XA-wkl" id="EB0-tj-79I"/>
                         <outlet property="titleLabel" destination="byd-h4-Eq7" id="MNE-ZC-00P"/>
+                        <outlet property="trailerButton" destination="7lm-9l-4Ae" id="Cr9-QD-leG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mU-zz-ply" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxM-XE-phh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="1630"/>
+            <point key="canvasLocation" x="466" y="1596"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
