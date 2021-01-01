@@ -7,8 +7,6 @@ target 'Flix' do
 
   # Pods for Flix 
 pod "AlamofireImage"
-pod "GoogleAPIClientForREST/YouTube", "~>1.2.1"
-pod "Google/SignIn" , "~> 3.0.3"
 
   target 'FlixTests' do
     inherit! :search_paths
