@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -23,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let moviesScrollViewController = navigationControllers.first?.viewControllers.first as? MoviesViewController,
             let moviesCollectionViewController = navigationControllers.last?.viewControllers.first as? MovieGridViewController
         {
-            Network.loadMovies { (movies, success) in
+            Network.loadMovies(pageNumber: 1) { (movies, success) in
                 if success == true {
                     moviesScrollViewController.movies = movies
                     moviesCollectionViewController.movies = movies

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Movie: CustomStringConvertible, Decodable {
+struct Movie: CustomStringConvertible, Codable {
     
     var title: String
     var overview: String
@@ -24,16 +24,10 @@ class Movie: CustomStringConvertible, Decodable {
         vote_average: \(vote_average)
         """
     }
+}
+
+struct Movies: Codable {
+    var results: [Movie]
     
-    init(title: String, overview: String, id: UInt, vote_average: Float, poster_path: String, backdrop_path: String) {
-        self.title = title
-        self.overview = overview
-        self.id = id
-        self.vote_average = vote_average
-        self.poster_path = poster_path
-        self.backdrop_path = backdrop_path
-    }
-    
-    //MARK: - instance methods
-    
+
 }

@@ -10,10 +10,6 @@ import UIKit
 import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-
-//    var movies = [[String: Any]]()
-    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,14 +20,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
     }
+    
+    //Struct that keeps track of the page number for the API calls
+    var pageManager = Page.init(pageNumber: 2)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
-        
-        
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,12 +50,31 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             cell.posterView.af.setImage(withURL: posterUrl!)
         }
         
-        
+        //check if the tableview is showing the last cell
+        if indexPath.row == (movies?.count ?? 0) - 3 {
+            loadMoreMovies()
+        }
         
         return cell
     }
     
-    
+    // Loads more movies and updates the next page number
+    func loadMoreMovies(){
+        
+        DispatchQueue.global(qos: .background).async {
+            Network.loadMovies(pageNumber: self.pageManager.pageNumber) { [self] (movies, success) in
+                
+                if success == true {
+                    
+                    if let newMovies = movies {
+                        self.movies?.append(contentsOf: newMovies)
+                        self.tableView.reloadData()
+                        self.pageManager.pageNumber += 1
+                    }
+                }
+            }
+        }
+    }
      //MARK: - Navigation
 
      //In a storyboard-based application, you will often want to do a little preparation before navigation
