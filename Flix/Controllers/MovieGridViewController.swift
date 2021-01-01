@@ -52,9 +52,6 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICol
             cell.posterView.af.setImage(withURL: posterUrl!)
         }
         
-        
-        
-        
         return cell
     }
     
