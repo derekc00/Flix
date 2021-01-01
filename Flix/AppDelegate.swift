@@ -16,6 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if
+            let tabBarController = window?.rootViewController as? UITabBarController,
+            let navigationControllers = tabBarController.viewControllers as? [UINavigationController],
+            let moviesScrollViewController = navigationControllers.first?.viewControllers.first as? MoviesViewController,
+            let moviesCollectionViewController = navigationControllers.last?.viewControllers.first as? MovieGridViewController
+        {
+            Network.loadMovies { (movies, success) in
+                if success == true {
+                    moviesScrollViewController.movies = movies
+                    moviesCollectionViewController.movies = movies
+                }
+            }
+        }
         return true
     }
 
