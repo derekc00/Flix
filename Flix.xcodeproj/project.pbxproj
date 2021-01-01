@@ -199,7 +199,6 @@
 				6D9B89C521EACF70001FEDDB /* Frameworks */,
 				6D9B89C621EACF70001FEDDB /* Resources */,
 				E73354D5B639AB66BF664B9A /* [CP] Embed Pods Frameworks */,
-				2F04E19BF06AAF927069CB56 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,7 +237,6 @@
 				6D9B89E421EACF72001FEDDB /* Frameworks */,
 				6D9B89E521EACF72001FEDDB /* Resources */,
 				97663E5C76862C863A31FF92 /* [CP] Embed Pods Frameworks */,
-				CC2067DEB86E3DB18571565B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,23 +319,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F04E19BF06AAF927069CB56 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Flix/Pods-Flix-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Flix/Pods-Flix-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flix/Pods-Flix-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		79CE6CD3B227913B40147719 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,23 +356,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flix-FlixUITests/Pods-Flix-FlixUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC2067DEB86E3DB18571565B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Flix-FlixUITests/Pods-Flix-FlixUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Flix-FlixUITests/Pods-Flix-FlixUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flix-FlixUITests/Pods-Flix-FlixUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D2135D547EAB5C49D2AB22AE /* [CP] Check Pods Manifest.lock */ = {
