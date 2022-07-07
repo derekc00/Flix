@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,33 +20,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
-        
-        if let movie = movies?[indexPath.row] {
-            
-            cell.titleLabel.text = movie.title
-            cell.synopsisLabel.text = movie.overview
-            
-            let baseUrl = "https://image.tmdb.org/t/p/w185"
-            let posterPath = movie.poster_path
-            let posterUrl = URL(string: baseUrl + posterPath)
-            
-            cell.posterView.af.setImage(withURL: posterUrl!)
-        }
-        return cell
-    }
-    
-    
-     //MARK: - Navigation
 
      //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // no need to call super.prepare() bc by default, it does nothing.
+        
          //Get the new view controller using segue.destination.
          //Pass the selected object to the new view controller.
         
@@ -67,6 +45,29 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
-    
-
 }
+
+extension MoviesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
+        
+        if let movie = movies?[indexPath.row] {
+            
+            cell.titleLabel.text = movie.title
+            cell.synopsisLabel.text = movie.overview
+            
+            let baseUrl = "https://image.tmdb.org/t/p/w185"
+            let posterPath = movie.poster_path
+            let posterUrl = URL(string: baseUrl + posterPath)
+            
+            cell.posterView.af.setImage(withURL: posterUrl!)
+        }
+        return cell
+    }
+}
+
+extension MoviesViewController: UITableViewDelegate { }

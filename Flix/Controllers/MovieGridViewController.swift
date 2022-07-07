@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MovieGridViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -23,14 +23,36 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICol
         
         //Handles the layout of the movie grid cells
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
         let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
-        //makes the height bigger than the width
         layout.itemSize = CGSize(width: width, height: width * 1.5)
     }
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        let cell = sender as! UICollectionViewCell
+        
+        if let indexPath = collectionView.indexPath(for: cell),
+        let movie = movies?[indexPath.item],
+        let detailsViewController = segue.destination as? MovieDetailsViewController
+        {
+            detailsViewController.movie = movie
+            collectionView.deselectItem(at: indexPath, animated: true)
+        }
+    }
+}
+
+// datasource and delegate should be put inside extension to show which
+// protocol functions belong to either the delegate or datasource
+extension MovieGridViewController: UICollectionViewDelegate {
+    
+}
+
+extension MovieGridViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies?.count ?? 0
     }
@@ -53,23 +75,5 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.posterView.af.setImage(withURL: posterUrl!)
         
         return cell
-    }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
-        let cell = sender as! UICollectionViewCell
-        
-        if let indexPath = collectionView.indexPath(for: cell),
-        let movie = movies?[indexPath.item],
-        let detailsViewController = segue.destination as? MovieDetailsViewController
-        {
-            detailsViewController.movie = movie
-            collectionView.deselectItem(at: indexPath, animated: true)
-        }
     }
 }
