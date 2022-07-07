@@ -11,8 +11,6 @@ import AlamofireImage
 
 class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
-
     @IBOutlet weak var collectionView: UICollectionView!
     
     var movies: [Movie]?
@@ -22,7 +20,6 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICol
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
         
         //Handles the layout of the movie grid cells
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -34,23 +31,26 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICol
         layout.itemSize = CGSize(width: width, height: width * 1.5)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return movies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // THORN: If `withReuseIdentifier` is misspelled, fatal error occurs when this line is executed.
+        // This is configured in the storyboard using the attributes inspector
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
         
-        
-        if let movie = movies?[indexPath.item]
-        {
-            let baseUrl = "https://image.tmdb.org/t/p/w185"
-            let posterPath = movie.poster_path
-            let posterUrl = URL(string: baseUrl + posterPath)
-            cell.posterView.af.setImage(withURL: posterUrl!)
+        guard let movie = movies?[indexPath.item] else { // check if movie is nil
+          print("Movie at \(indexPath.item) is nil")
+          return cell
         }
+        
+        // this could be put inside a helper function bc it is used in other VC's.
+        // for now, it is easiest for the student if we duplicate this code
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = movie.poster_path
+        let posterUrl = URL(string: baseUrl + posterPath)
+        cell.posterView.af.setImage(withURL: posterUrl!)
         
         return cell
     }
@@ -71,11 +71,5 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICol
             detailsViewController.movie = movie
             collectionView.deselectItem(at: indexPath, animated: true)
         }
-        
-        
-        
-        
     }
-    
-
 }

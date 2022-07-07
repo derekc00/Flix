@@ -8,12 +8,11 @@
 
 import Foundation
 
-class Movie: CustomStringConvertible, Decodable {
+struct Movie: CustomStringConvertible, Decodable {
     
     var title: String
     var overview: String
     var id: UInt
-    var vote_average: Float
     var poster_path: String
     var backdrop_path: String
     var description: String {
@@ -21,19 +20,29 @@ class Movie: CustomStringConvertible, Decodable {
         Movie: \(title)
         Overview: \(overview)
         id: \(id)
-        vote_average: \(vote_average)
         """
     }
     
-    init(title: String, overview: String, id: UInt, vote_average: Float, poster_path: String, backdrop_path: String) {
-        self.title = title
-        self.overview = overview
-        self.id = id
-        self.vote_average = vote_average
-        self.poster_path = poster_path
-        self.backdrop_path = backdrop_path
-    }
+    // Decodable allows to parse JSON data into structs/classes
     
-    //MARK: - instance methods
+    // NOTE: No initializer needed for structs. Memberwise initializer provided.
+    // see here: https://www.hackingwithswift.com/quick-start/understanding-swift/how-do-swifts-memberwise-initializers-work
+    
+    // NOTE: class vs. structs for Movie object?
+    // apple docs recommend structs here
+    // see here: https://developer.apple.com/documentation/swift/choosing-between-structures-and-classes
     
 }
+
+struct MovieResults: Decodable {
+    var results: [Movie]
+}
+
+// NOTE: `codingKey` is not needed
+// see here: https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
+
+//extension MovieResults: Decodable {
+//    enum CodingKey: String {
+//        case results
+//    }
+//}

@@ -16,18 +16,17 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     
-    //create dictionary with all movies. Will be populated in the sender class
+    //create optional property for Movie. Will be populated by the origin class's prepare method
     var movie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         titleLabel.text = movie?.title
-        titleLabel.sizeToFit()
+        titleLabel.sizeToFit() //Prevents the text from getting cut-off with "..."
         
         synopsisLabel.text = movie?.overview
-        synopsisLabel.sizeToFit() //Prevents the text from getting cut-off with ...
+        synopsisLabel.sizeToFit()
         
         let baseUrl = "https://image.tmdb.org/t/p/w185"
 
@@ -43,21 +42,6 @@ class MovieDetailsViewController: UIViewController {
         {
             backdropView.af.setImage(withURL: backdropURL)
         }
-        // customize trailer button
-        trailerButton.contentEdgeInsets = UIEdgeInsets(top: 20, left: 8, bottom: 20, right: 8)  //Adds margins around content (title)
-        trailerButton.layer.cornerRadius = 5
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

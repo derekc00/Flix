@@ -10,28 +10,15 @@ import UIKit
 import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-
-//    var movies = [[String: Any]]()
-    
     
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [Movie]?{
-        didSet {
-            if isViewLoaded {
-                tableView.reloadData()
-            }
-        }
-    }
+    var movies: [Movie]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.dataSource = self
         tableView.delegate = self
-        
-        
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,9 +39,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             
             cell.posterView.af.setImage(withURL: posterUrl!)
         }
-        
-        
-        
         return cell
     }
     
