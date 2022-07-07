@@ -8,20 +8,13 @@
 
 import Foundation
 
-struct Movie: CustomStringConvertible, Decodable {
+struct Movie: Decodable {
     
     var title: String
     var overview: String
     var id: UInt
     var poster_path: String
     var backdrop_path: String
-    var description: String {
-        return """
-        Movie: \(title)
-        Overview: \(overview)
-        id: \(id)
-        """
-    }
     
     // Decodable allows to parse JSON data into structs/classes
     

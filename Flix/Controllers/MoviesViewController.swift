@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
 import AlamofireImage
+import Nuke
 
 class MoviesViewController: UIViewController {
     
@@ -62,9 +64,11 @@ extension MoviesViewController: UITableViewDataSource {
             
             let baseUrl = "https://image.tmdb.org/t/p/w185"
             let posterPath = movie.poster_path
-            let posterUrl = URL(string: baseUrl + posterPath)
+            let posterUrl = URL(string: baseUrl + posterPath)!
             
-            cell.posterView.af.setImage(withURL: posterUrl!)
+//            cell.posterView.kf.setImage(with: posterUrl)
+//            cell.posterView.af.setImage(withURL: posterUrl)
+            Nuke.loadImage(with: posterUrl, into: cell.posterView)
         }
         return cell
     }
