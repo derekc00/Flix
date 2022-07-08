@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-import AlamofireImage
+//import AlamofireImage
 import Nuke
 
 class MoviesViewController: UIViewController {
