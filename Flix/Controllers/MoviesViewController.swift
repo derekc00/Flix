@@ -25,6 +25,14 @@ class MoviesViewController: UIViewController {
         // Required to change row height
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
+
+        // Required to fix nav bar having a clear background with iOS 15 update
+        // see here: https://developer.apple.com/forums/thread/682420
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance;
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
     }
 
      //In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -12,14 +12,14 @@
         <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController interfaceStyle="light" id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="269" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v3W-3r-gQw">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="300" id="09x-qP-dgx" customClass="MovieCell" customModule="Flix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="375" height="300"/>
@@ -80,7 +80,7 @@
                             <constraint firstItem="v3W-3r-gQw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yc6-TT-G60"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="always" id="ng4-go-t7e"/>
+                    <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="never" id="ng4-go-t7e"/>
                     <connections>
                         <outlet property="tableView" destination="v3W-3r-gQw" id="ruV-Rz-bOO"/>
                     </connections>
@@ -148,17 +148,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ljz-Uo-1Yu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" id="FQ2-2I-jrB"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="VLy-0W-LYv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="VLy-0W-LYv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hSs-MQ-1Pk">
@@ -181,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NnP-Ct-SwS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Gu-eG-9yG">
                                     <size key="itemSize" width="160" height="212"/>
@@ -217,10 +209,10 @@
                             <constraint firstItem="89p-w8-VqW" firstAttribute="trailing" secondItem="NnP-Ct-SwS" secondAttribute="trailing" id="EBS-SI-Wum"/>
                             <constraint firstItem="89p-w8-VqW" firstAttribute="top" secondItem="NnP-Ct-SwS" secondAttribute="top" id="e2T-sn-GX2"/>
                             <constraint firstItem="NnP-Ct-SwS" firstAttribute="leading" secondItem="89p-w8-VqW" secondAttribute="leading" id="lbf-02-MOi"/>
-                            <constraint firstItem="NnP-Ct-SwS" firstAttribute="bottom" secondItem="89p-w8-VqW" secondAttribute="bottom" constant="49" id="pgy-2x-QRd"/>
+                            <constraint firstItem="NnP-Ct-SwS" firstAttribute="bottom" secondItem="89p-w8-VqW" secondAttribute="bottom" id="pgy-2x-QRd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Superhero Movies" id="Pwi-Xh-OOE"/>
+                    <navigationItem key="navigationItem" title="Superhero Movies" largeTitleDisplayMode="never" id="Pwi-Xh-OOE"/>
                     <connections>
                         <outlet property="collectionView" destination="NnP-Ct-SwS" id="0Ux-x4-iBZ"/>
                     </connections>
@@ -229,14 +221,14 @@
             </objects>
             <point key="canvasLocation" x="265" y="834"/>
         </scene>
-        <!--Item-->
+        <!--SuperHeros-->
         <scene sceneID="c25-od-VVj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="n3u-K1-BsJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="superhero_tabbar_item" id="9qW-Oi-Ohq"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n3u-K1-BsJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="SuperHeros" image="superhero_tabbar_item" id="9qW-Oi-Ohq"/>
                     <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Plu-sb-tPe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -253,8 +245,6 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="KSY-Tr-1MH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="MQW-CJ-bQv">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -271,7 +261,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rrS-j6-NhL"/>
+        <segue reference="nVV-PO-6st"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
