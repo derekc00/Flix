@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-//import AlamofireImage
+import AlamofireImage
 import Nuke
 
 class MoviesViewController: UIViewController {
@@ -21,6 +21,10 @@ class MoviesViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // Required to change row height
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 300
     }
 
      //In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -62,8 +66,8 @@ extension MoviesViewController: UITableViewDataSource {
             cell.titleLabel.text = movie.title
             cell.synopsisLabel.text = movie.overview
             
-            let baseUrl = "https://image.tmdb.org/t/p/w185"
-            let posterPath = movie.poster_path
+            let baseUrl = "https://image.tmdb.org/t/p/w780"
+            let posterPath = movie.backdrop_path
             let posterUrl = URL(string: baseUrl + posterPath)!
             
 //            cell.posterView.kf.setImage(with: posterUrl)
@@ -74,4 +78,17 @@ extension MoviesViewController: UITableViewDataSource {
     }
 }
 
-extension MoviesViewController: UITableViewDelegate { }
+extension MoviesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let inset: CGFloat = 12
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 10    //if you want round edges
+        maskLayer.backgroundColor = UIColor.green.cgColor
+        maskLayer.frame = cell.bounds.inset(by: UIEdgeInsets(top: inset,
+                                                             left: inset,
+                                                             bottom: inset,
+                                                             right: inset))
+        cell.layer.mask = maskLayer
+    }
+    
+}
