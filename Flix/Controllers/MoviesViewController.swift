@@ -7,15 +7,19 @@
 //
 
 import UIKit
-import Kingfisher
-import AlamofireImage
 import Nuke
 
 class MoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [Movie]?
+    var movies: [Movie]? {
+        didSet {
+            if tableView != nil {
+                tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,8 @@ class MoviesViewController: UIViewController {
         appearance.backgroundColor = .white
         navigationController?.navigationBar.standardAppearance = appearance;
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
+        tableView.reloadData()
     }
 
      //In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlamofireImage
+import Nuke
 
 class MovieDetailsViewController: UIViewController {
 
@@ -39,7 +39,7 @@ class MovieDetailsViewController: UIViewController {
         if let backdropPath = movie?.backdrop_path,
            let backdropURL = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
         {
-            backdropView.af.setImage(withURL: backdropURL)
+            Nuke.loadImage(with: backdropURL, into: backdropView)
         }
         
     }

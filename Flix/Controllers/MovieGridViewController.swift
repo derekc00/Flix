@@ -7,13 +7,19 @@
 //
 
 import UIKit
-import AlamofireImage
+import Nuke
 
 class MovieGridViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var movies: [Movie]?
+    var movies: [Movie]? {
+        didSet {
+            if collectionView != nil {
+                collectionView.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +77,8 @@ extension MovieGridViewController: UICollectionViewDataSource {
         // for now, it is easiest for the student if we duplicate this code
         let baseUrl = "https://image.tmdb.org/t/p/w185"
         let posterPath = movie.poster_path
-        let posterUrl = URL(string: baseUrl + posterPath)
-        cell.posterView.af.setImage(withURL: posterUrl!)
+        let posterUrl = URL(string: baseUrl + posterPath)!
+        Nuke.loadImage(with: posterUrl, into: cell.posterView)
         
         return cell
     }

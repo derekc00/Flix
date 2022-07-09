@@ -26,8 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             WebServices.loadMovies { (movies, error) in
                 guard error != nil else {
-                    moviesScrollViewController.movies = movies
-                    moviesCollectionViewController.movies = movies
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        moviesScrollViewController.movies = movies
+                        moviesCollectionViewController.movies = movies
+                    }
+                    
+                    // NOTE: Cannot reload data here bc collectionView has not been loaded into memory
+//                    moviesCollectionViewController.collectionView.reloadData()
+//                    moviesScrollViewController.tableView.reloadData()
                     return
                 }
             }
