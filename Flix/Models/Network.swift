@@ -13,11 +13,11 @@ class Network {
     //
     // MARK: - Class Methods
     //
-    static func loadJSONFile<T: Decodable>(from url: String,
+    static func loadJSONFile<T: Decodable>(from filename: String,
                                            type: T.Type,
                                            completionHandler: @escaping (T?, NetworkError?) -> Void) {
 
-        guard let url = URL(string: url) else {
+        guard let url = Bundle.main.url(forResource: filename, withExtension: "json") else {
             completionHandler(nil, .invalidUrl)
             return
         }

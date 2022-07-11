@@ -8,20 +8,22 @@
 
 import UIKit
 
-class MovieCell: UITableViewCell {
+class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var synopsisLabel: UILabel!
-    @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var subtextLabel: UILabel!
+    @IBOutlet weak var backdropImageView: UIImageView!
     
+    // MARK: - Lifecycle methods (can be deleted)
     override func awakeFromNib() {
         super.awakeFromNib()
+        subtextLabel.sizeToFit()
+        subtextLabel.numberOfLines = 2
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

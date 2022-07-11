@@ -10,9 +10,7 @@ import Foundation
 
 class WebServices {
     static func loadMovies(completionHandler: @escaping ([Movie]?, Error?) -> Void) {
-        let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)"
-        Network.loadJSONFile(from: url, type: MovieResults.self) { movies, error in
+        Network.loadJSONFile(from: "Flix_Now_Playing", type: MovieResults.self) { movies, error in
             guard error == nil else {
               completionHandler(nil, error)
               return

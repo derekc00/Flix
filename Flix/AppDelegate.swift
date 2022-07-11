@@ -20,20 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if
             let tabBarController = window?.rootViewController as? UITabBarController,
             let navigationControllers = tabBarController.viewControllers as? [UINavigationController],
-            let moviesScrollViewController = navigationControllers.first?.viewControllers.first as? MoviesViewController,
-            let moviesCollectionViewController = navigationControllers.last?.viewControllers.first as? MovieGridViewController
+            let moviesScrollViewController = navigationControllers.first?.viewControllers.first as? HomeViewController,
+            let moviesCollectionViewController = navigationControllers.last?.viewControllers.first as? GridViewController
         {
             WebServices.loadMovies { (movies, error) in
                 guard error != nil else {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        moviesScrollViewController.movies = movies
-                        moviesCollectionViewController.movies = movies
-                    }
+                    moviesScrollViewController.dataArray = movies
+                    moviesCollectionViewController.dataArray = movies
                     
-                    // NOTE: Cannot reload data here bc collectionView/tableview property
-                    // has not been loaded into memory here
-//                    moviesCollectionViewController.collectionView.reloadData()
-//                    moviesScrollViewController.tableView.reloadData()
+                    // NOTE: Cannot reload data on collectionView/tableview property
+                    // here bc they have not been loaded into memory
                     return
                 }
             }
