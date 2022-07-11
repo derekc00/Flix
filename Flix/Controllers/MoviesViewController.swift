@@ -79,13 +79,9 @@ extension MoviesViewController: UITableViewDataSource {
             
             cell.titleLabel.text = movie.title
             cell.synopsisLabel.text = movie.overview
-            
             let baseUrl = "https://image.tmdb.org/t/p/w780"
             let posterPath = movie.backdrop_path
             let posterUrl = URL(string: baseUrl + posterPath)!
-            
-//            cell.posterView.kf.setImage(with: posterUrl)
-//            cell.posterView.af.setImage(withURL: posterUrl)
             Nuke.loadImage(with: posterUrl, into: cell.posterView)
         }
         return cell
