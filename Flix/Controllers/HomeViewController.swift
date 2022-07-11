@@ -83,7 +83,7 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     // This creates a mask over each cell to give it the 'card' look
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let inset: CGFloat = 12
+        let inset: CGFloat = 8
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 10    //if you want round edges
         maskLayer.backgroundColor = UIColor.green.cgColor
