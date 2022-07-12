@@ -16,20 +16,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var subtextLabel: UILabel!
     
     //create optional property for Movie. Will be populated by the origin class's prepare method
-    var data: Movie?
+    var track: Track?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = data?.title
+        titleLabel.text = track?.artistName
         titleLabel.sizeToFit() //Prevents the text from getting cut-off with "..."
         
-        subtextLabel.text = data?.overview
+        subtextLabel.text = track?.collectionName
         subtextLabel.sizeToFit()
 
         // place image in the backdrop
-        if let backdropPath = data?.backdrop_path,
-           let backdropURL = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
+        if let backdropURL = URL(string: track!.artworkUrl100)
         {
             Nuke.loadImage(with: backdropURL, into: backdropImageView)
         }

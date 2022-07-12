@@ -23,10 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let moviesScrollViewController = navigationControllers.first?.viewControllers.first as? HomeViewController,
             let moviesCollectionViewController = navigationControllers.last?.viewControllers.first as? GridViewController
         {
-            WebServices.loadMovies { (movies, error) in
+            WebServices.loadMovies { (tracks, error) in
                 guard error != nil else {
-                    moviesScrollViewController.dataArray = movies
-                    moviesCollectionViewController.dataArray = movies
+                    moviesScrollViewController.tracks = tracks
+                    moviesCollectionViewController.tracks = tracks
                     
                     // NOTE: Cannot reload data on collectionView/tableview property
                     // here bc they have not been loaded into memory

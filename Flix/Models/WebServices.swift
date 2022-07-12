@@ -9,13 +9,13 @@
 import Foundation
 
 class WebServices {
-    static func loadMovies(completionHandler: @escaping ([Movie]?, Error?) -> Void) {
-        Network.loadJSONFile(from: "Flix_Now_Playing", type: MovieResults.self) { movies, error in
+    static func loadMovies(completionHandler: @escaping ([Track]?, Error?) -> Void) {
+        Network.loadJSONFile(from: "Jack_Johnson_iTunes", type: MusicResults.self) { tracks, error in
             guard error == nil else {
               completionHandler(nil, error)
               return
             }
-            completionHandler(movies!.results, nil)
+            completionHandler(tracks?.results, nil)
         }
     }
 }

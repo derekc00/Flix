@@ -13,7 +13,7 @@ class GridViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataArray: [Movie]?
+    var tracks: [Track]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +37,10 @@ class GridViewController: UIViewController {
         let cell = sender as! UICollectionViewCell
         
         if let indexPath = collectionView.indexPath(for: cell),
-        let movie = dataArray?[indexPath.item],
+        let track = tracks?[indexPath.item],
         let detailsViewController = segue.destination as? DetailViewController
         {
-            detailsViewController.data = movie
+            detailsViewController.track = track
             collectionView.deselectItem(at: indexPath, animated: true)
         }
     }
@@ -54,7 +54,7 @@ extension GridViewController: UICollectionViewDelegate {
 
 extension GridViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray?.count ?? 0
+        return tracks?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,16 +62,14 @@ extension GridViewController: UICollectionViewDataSource {
         // This is configured in the storyboard using the attributes inspector
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! GridViewCell
         
-        guard let movie = dataArray?[indexPath.item] else { // check if movie is nil
+        guard let track = tracks?[indexPath.item] else { // check if movie is nil
           print("Movie at \(indexPath.item) is nil")
           return cell
         }
         
         // this could be put inside a helper function bc it is used in other VC's.
         // for now, it is easiest for the student if we duplicate this code
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let backdropPath = movie.poster_path
-        let posterUrl = URL(string: baseUrl + backdropPath)!
+        let posterUrl = URL(string: track.artworkUrl100)!
         Nuke.loadImage(with: posterUrl, into: cell.backdropImageView)
         
         return cell

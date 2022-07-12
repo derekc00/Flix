@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataArray: [Movie]?
+    var tracks: [Track]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,13 +44,13 @@ class HomeViewController: UIViewController {
         if
             let cell = sender as? UITableViewCell,
             let indexPath = tableView.indexPath(for: cell),
-            let data = dataArray?[indexPath.row]
+            let track = tracks?[indexPath.row]
         {
             //Pass the selected movie to the details movies controller
             let detailViewController = segue.destination as! DetailViewController
             
             //There is a variable in the class that we want to send stuff to that we define here
-            detailViewController.data = data
+            detailViewController.track = track
             
             //Deselects the row after you come back to the view
             tableView.deselectRow(at: indexPath, animated: true)
@@ -61,20 +61,18 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray?.count ?? 0
+        return tracks?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! TableViewCell
         
-        if let movie = dataArray?[indexPath.row] {
+        if let track = tracks?[indexPath.row] {
             
-            cell.titleLabel.text = movie.title
-            cell.subtextLabel.text = movie.overview
-            let baseUrl = "https://image.tmdb.org/t/p/w780"
-            let posterPath = movie.backdrop_path
-            let posterUrl = URL(string: baseUrl + posterPath)!
-            Nuke.loadImage(with: posterUrl, into: cell.backdropImageView)
+            cell.titleLabel.text = track.trackName
+            cell.subtextLabel.text = track.artistName
+            let artworkUrl = URL(string: track.artworkUrl100)!
+            Nuke.loadImage(with: artworkUrl, into: cell.backdropImageView)
         }
         return cell
     }
