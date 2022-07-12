@@ -9,17 +9,11 @@
 import UIKit
 import Nuke
 
-class MovieGridViewController: UIViewController {
+class GridViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var movies: [Movie]? {
-        didSet {
-            if collectionView != nil {
-                collectionView.reloadData()
-            }
-        }
-    }
+    var dataArray: [Movie]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +37,10 @@ class MovieGridViewController: UIViewController {
         let cell = sender as! UICollectionViewCell
         
         if let indexPath = collectionView.indexPath(for: cell),
-        let movie = movies?[indexPath.item],
-        let detailsViewController = segue.destination as? MovieDetailsViewController
+        let movie = dataArray?[indexPath.item],
+        let detailsViewController = segue.destination as? DetailViewController
         {
-            detailsViewController.movie = movie
+            detailsViewController.data = movie
             collectionView.deselectItem(at: indexPath, animated: true)
         }
     }
@@ -54,21 +48,21 @@ class MovieGridViewController: UIViewController {
 
 // datasource and delegate should be put inside extension to show which
 // protocol functions belong to either the delegate or datasource
-extension MovieGridViewController: UICollectionViewDelegate {
+extension GridViewController: UICollectionViewDelegate {
     
 }
 
-extension MovieGridViewController: UICollectionViewDataSource {
+extension GridViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies?.count ?? 0
+        return dataArray?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // THORN: If `withReuseIdentifier` is misspelled, fatal error occurs when this line is executed.
         // This is configured in the storyboard using the attributes inspector
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! GridViewCell
         
-        guard let movie = movies?[indexPath.item] else { // check if movie is nil
+        guard let movie = dataArray?[indexPath.item] else { // check if movie is nil
           print("Movie at \(indexPath.item) is nil")
           return cell
         }
@@ -76,9 +70,9 @@ extension MovieGridViewController: UICollectionViewDataSource {
         // this could be put inside a helper function bc it is used in other VC's.
         // for now, it is easiest for the student if we duplicate this code
         let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie.poster_path
-        let posterUrl = URL(string: baseUrl + posterPath)!
-        Nuke.loadImage(with: posterUrl, into: cell.posterView)
+        let backdropPath = movie.poster_path
+        let posterUrl = URL(string: baseUrl + backdropPath)!
+        Nuke.loadImage(with: posterUrl, into: cell.backdropImageView)
         
         return cell
     }

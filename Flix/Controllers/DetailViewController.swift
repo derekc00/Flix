@@ -9,29 +9,29 @@
 import UIKit
 import Nuke
 
-class MovieDetailsViewController: UIViewController {
+class DetailViewController: UIViewController {
 
-    @IBOutlet weak var backdropView: UIImageView!
+    @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var subtextLabel: UILabel!
     
     //create optional property for Movie. Will be populated by the origin class's prepare method
-    var movie: Movie?
+    var data: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = movie?.title
+        titleLabel.text = data?.title
         titleLabel.sizeToFit() //Prevents the text from getting cut-off with "..."
         
-        synopsisLabel.text = movie?.overview
-        synopsisLabel.sizeToFit()
+        subtextLabel.text = data?.overview
+        subtextLabel.sizeToFit()
 
         // place image in the backdrop
-        if let backdropPath = movie?.backdrop_path,
+        if let backdropPath = data?.backdrop_path,
            let backdropURL = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
         {
-            Nuke.loadImage(with: backdropURL, into: backdropView)
+            Nuke.loadImage(with: backdropURL, into: backdropImageView)
         }
         
     }

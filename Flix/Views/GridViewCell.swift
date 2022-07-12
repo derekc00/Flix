@@ -8,7 +8,6 @@
 
 import UIKit
 
-class MovieGridCell: UICollectionViewCell {
-    
-    @IBOutlet weak var posterView: UIImageView!
+class GridViewCell: UICollectionViewCell {
+    @IBOutlet weak var backdropImageView: UIImageView!
 }
