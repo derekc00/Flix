@@ -17,14 +17,7 @@ class TableViewCell: UITableViewCell {
     // MARK: - Lifecycle methods (can be deleted)
     override func awakeFromNib() {
         super.awakeFromNib()
-        subtextLabel.sizeToFit()
-        subtextLabel.numberOfLines = 2
-        // Initialization code
+//        subtextLabel.numberOfLines = 0
+//        subtextLabel.sizeToFit()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-
 }
