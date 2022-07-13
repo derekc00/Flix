@@ -23,14 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let songsViewController = navigationControllers.first?.viewControllers.first as? HomeViewController,
             let albumsViewController = navigationControllers.last?.viewControllers.first as? GridViewController
         {
-            WebServices.loadMovies { (tracks, error) in
-                guard error != nil else {
-                    songsViewController.tracks = tracks
-                    albumsViewController.tracks = tracks
-                    
-                    // NOTE: Cannot reload data on collectionView/tableview property
-                    // here bc they have not been loaded into memory
+            WebServices.loadTracks { (tracks, error) in
+                guard error == nil else {
+                    print("error loading tracks")
                     return
+                }
+                
+                /// NOTE: Cannot reload data on collectionView/tableview property here bc they have not been loaded into memory
+                if let tracks = tracks {
+                    songsViewController.tracks = tracks
+                    albumsViewController.tracks = Track.unqiueAlbumsUsing(tracks: tracks)
                 }
             }
         }

@@ -9,7 +9,7 @@
 import Foundation
 
 class WebServices {
-    static func loadMovies(completionHandler: @escaping ([Track]?, Error?) -> Void) {
+    static func loadTracks(completionHandler: @escaping ([Track]?, Error?) -> Void) {
         Network.loadJSONFile(from: "Jack_Johnson_iTunes", type: MusicResults.self) { tracks, error in
             guard error == nil else {
               completionHandler(nil, error)

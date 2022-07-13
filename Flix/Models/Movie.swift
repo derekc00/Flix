@@ -16,14 +16,14 @@ struct Movie: Decodable {
     var poster_path: String
     var backdrop_path: String
     
-    // Decodable allows to parse JSON data into structs/classes
+    /// Decodable allows to parse JSON data into structs/classes
     
-    // NOTE: No initializer needed for structs. Memberwise initializer provided.
-    // see here: https://www.hackingwithswift.com/quick-start/understanding-swift/how-do-swifts-memberwise-initializers-work
+    /// NOTE: No initializer needed for structs. Memberwise initializer provided.
+    /// see here: https://www.hackingwithswift.com/quick-start/understanding-swift/how-do-swifts-memberwise-initializers-work
     
-    // NOTE: class vs. structs for Movie object?
-    // apple docs recommend structs here
-    // see here: https://developer.apple.com/documentation/swift/choosing-between-structures-and-classes
+    /// NOTE: class vs. structs for Movie object?
+    /// apple docs recommend structs here
+    /// see here: https://developer.apple.com/documentation/swift/choosing-between-structures-and-classes
     
 }
 
@@ -31,8 +31,8 @@ struct MovieResults: Decodable {
     var results: [Movie]
 }
 
-// NOTE: `codingKey` is not needed
-// see here: https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
+/// NOTE: `codingKey` is not needed
+/// see here: https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
 
 //extension MovieResults: Decodable {
 //    enum CodingKey: String {

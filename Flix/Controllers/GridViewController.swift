@@ -14,7 +14,7 @@ class GridViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var tracks: [Track]?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,20 +30,20 @@ class GridViewController: UIViewController {
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
-        let cell = sender as! UICollectionViewCell
-        
-        if let indexPath = collectionView.indexPath(for: cell),
-        let track = tracks?[indexPath.item],
-        let detailsViewController = segue.destination as? DetailViewController
-        {
-            detailsViewController.track = track
-            collectionView.deselectItem(at: indexPath, animated: true)
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//
+//        let cell = sender as! UICollectionViewCell
+//
+//        if let indexPath = collectionView.indexPath(for: cell),
+//        let track = tracks?[indexPath.item],
+//        let detailsViewController = segue.destination as? DetailViewController
+//        {
+//            detailsViewController.track = track
+//            collectionView.deselectItem(at: indexPath, animated: true)
+//        }
+//    }
 }
 
 // datasource and delegate should be put inside extension to show which

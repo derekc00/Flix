@@ -49,10 +49,23 @@ struct Track: Decodable {
             return "\(minutes):0\(truncatedSeconds)"
         }
     }
+    
+    static func unqiueAlbumsUsing(tracks: [Track]) -> [Track] {
+        var seenAlbums = Set<UInt>()
+        var tracksWithUnqiueAlbums = [Track]()
+        for track in tracks {
+            if !seenAlbums.contains(track.collectionId) {
+                tracksWithUnqiueAlbums.append(track)
+                seenAlbums.insert(track.collectionId)
+            }
+        }
+        return tracksWithUnqiueAlbums
+    }
 }
 
 struct MusicResults: Decodable {
     var results: [Track]
+    
     /// NOTE: `codingKey` is not needed
     /// see here: https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
 }
