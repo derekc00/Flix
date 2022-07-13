@@ -42,7 +42,12 @@ struct Track: Decodable {
     ///  ex:  208643 -> "3:28"
     func formattedDuration() -> String {
         let (minutes, seconds) = self.trackTimeMillis.quotientAndRemainder(dividingBy: 60 * 1000)
-        return "\(minutes):\(seconds / 1000)"
+        let truncatedSeconds = seconds / 1000
+        if truncatedSeconds >= 10 {
+            return "\(minutes):\(truncatedSeconds)"
+        } else {
+            return "\(minutes):0\(truncatedSeconds)"
+        }
     }
 }
 
