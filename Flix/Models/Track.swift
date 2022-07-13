@@ -48,13 +48,7 @@ struct Track: Decodable {
 
 struct MusicResults: Decodable {
     var results: [Track]
+    /// NOTE: `codingKey` is not needed
+    /// see here: https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
 }
 
-/// NOTE: `codingKey` is not needed
-/// see here: https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
-
-//extension MovieResults: Decodable {
-//    enum CodingKey: String {
-//        case results
-//    }
-//}
