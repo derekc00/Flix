@@ -30,21 +30,14 @@ class HomeViewController: UIViewController {
         // Required to change row height
         tableView.rowHeight = UITableView.automaticDimension
 
-        // Required to fix nav bar having a clear background with iOS 15 update
-        // see here: https://developer.apple.com/forums/thread/682420
-//        let appearance = UINavigationBarAppearance()
-//        appearance.configureWithOpaqueBackground()
-//        appearance.backgroundColor = .white
-//        navigationController?.navigationBar.standardAppearance = appearance;
-//        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
     }
 
      //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // no need to call super.prepare() bc by default, it does nothing.
         
-         //Get the new view controller using segue.destination.
-         //Pass the selected object to the new view controller.
+        //Get the new view controller using segue.destination.
+        //Pass the selected object to the new view controller.
         
         //Find the selected movie
         if
