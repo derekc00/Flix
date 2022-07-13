@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -20,13 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if
             let tabBarController = window?.rootViewController as? UITabBarController,
             let navigationControllers = tabBarController.viewControllers as? [UINavigationController],
-            let moviesScrollViewController = navigationControllers.first?.viewControllers.first as? HomeViewController,
-            let moviesCollectionViewController = navigationControllers.last?.viewControllers.first as? GridViewController
+            let songsViewController = navigationControllers.first?.viewControllers.first as? HomeViewController,
+            let albumsViewController = navigationControllers.last?.viewControllers.first as? GridViewController
         {
             WebServices.loadMovies { (tracks, error) in
                 guard error != nil else {
-                    moviesScrollViewController.tracks = tracks
-                    moviesCollectionViewController.tracks = tracks
+                    songsViewController.tracks = tracks
+                    albumsViewController.tracks = tracks
                     
                     // NOTE: Cannot reload data on collectionView/tableview property
                     // here bc they have not been loaded into memory

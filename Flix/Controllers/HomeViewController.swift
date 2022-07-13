@@ -13,7 +13,13 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var tracks: [Track]?
+    var tracks: [Track]? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +32,11 @@ class HomeViewController: UIViewController {
 
         // Required to fix nav bar having a clear background with iOS 15 update
         // see here: https://developer.apple.com/forums/thread/682420
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance;
-        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = .white
+//        navigationController?.navigationBar.standardAppearance = appearance;
+//        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
     }
 
      //In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -65,6 +71,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! TableViewCell
         
         if let track = tracks?[indexPath.row] {
@@ -79,17 +86,4 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UITableViewDelegate {
-    // This creates a mask over each cell to give it the 'card' look
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let inset: CGFloat = 8
-        let maskLayer = CALayer()
-        maskLayer.cornerRadius = 10    //if you want round edges
-        maskLayer.backgroundColor = UIColor.green.cgColor
-        maskLayer.frame = cell.bounds.inset(by: UIEdgeInsets(top: inset,
-                                                             left: inset,
-                                                             bottom: inset,
-                                                             right: inset))
-        cell.layer.mask = maskLayer
-    }
-    
 }

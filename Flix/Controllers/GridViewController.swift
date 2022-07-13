@@ -26,7 +26,7 @@ class GridViewController: UIViewController {
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
         let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
-        layout.itemSize = CGSize(width: width, height: width * 1.5)
+        layout.itemSize = CGSize(width: width, height: width)
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

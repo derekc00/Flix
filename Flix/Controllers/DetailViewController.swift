@@ -13,20 +13,28 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtextLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var albumLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     
-    //create optional property for Movie. Will be populated by the origin class's prepare method
     var track: Track?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = track?.artistName
-        titleLabel.sizeToFit() //Prevents the text from getting cut-off with "..."
+        backdropImageView.layer.masksToBounds = true
+        backdropImageView.layer.cornerRadius = 5
         
-        subtextLabel.text = track?.collectionName
-        subtextLabel.sizeToFit()
-
+        if let track = track {
+            titleLabel.text = track.trackName
+            artistLabel.text = track.artistName
+            albumLabel.text = track.collectionName
+            genreLabel.text = track.primaryGenreName
+            releaseDateLabel.text = track.formattedReleaseDate()
+            durationLabel.text = track.formattedDuration()
+        }
         // place image in the backdrop
         if let backdropURL = URL(string: track!.artworkUrl100)
         {

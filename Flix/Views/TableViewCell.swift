@@ -17,7 +17,6 @@ class TableViewCell: UITableViewCell {
     // MARK: - Lifecycle methods (can be deleted)
     override func awakeFromNib() {
         super.awakeFromNib()
-//        subtextLabel.numberOfLines = 0
-//        subtextLabel.sizeToFit()
+        backdropImageView.layer.cornerRadius = 5
     }
 }
