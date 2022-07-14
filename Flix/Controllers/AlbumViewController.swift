@@ -1,5 +1,5 @@
 //
-//  MovieGridViewController.swift
+//  AlbumViewController.swift
 //  Flix
 //
 //  Created by Derek Chang on 1/27/19.
@@ -9,7 +9,7 @@
 import UIKit
 import Nuke
 
-class GridViewController: UIViewController {
+class AlbumViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,7 +21,7 @@ class GridViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        //Handles the layout of the movie grid cells
+        //Handles the layout of the album grid cells
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
@@ -48,11 +48,11 @@ class GridViewController: UIViewController {
 
 // datasource and delegate should be put inside extension to show which
 // protocol functions belong to either the delegate or datasource
-extension GridViewController: UICollectionViewDelegate {
+extension AlbumViewController: UICollectionViewDelegate {
     
 }
 
-extension GridViewController: UICollectionViewDataSource {
+extension AlbumViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tracks?.count ?? 0
     }
@@ -60,10 +60,10 @@ extension GridViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // THORN: If `withReuseIdentifier` is misspelled, fatal error occurs when this line is executed.
         // This is configured in the storyboard using the attributes inspector
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! GridViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
         
-        guard let track = tracks?[indexPath.item] else { // check if movie is nil
-          print("Movie at \(indexPath.item) is nil")
+        guard let track = tracks?[indexPath.item] else { // check if track is nil
+          print("Track at \(indexPath.item) is nil")
           return cell
         }
         

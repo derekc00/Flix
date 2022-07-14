@@ -1,5 +1,5 @@
 //
-//  MoviesViewController.swift
+//  TrackViewController.swift
 //  Flix
 //
 //  Created by Derek Chang on 1/12/19.
@@ -9,7 +9,7 @@
 import UIKit
 import Nuke
 
-class HomeViewController: UIViewController {
+class TrackViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,14 +39,14 @@ class HomeViewController: UIViewController {
         //Get the new view controller using segue.destination.
         //Pass the selected object to the new view controller.
         
-        //Find the selected movie
+        //Find the selected track
         if
             let cell = sender as? UITableViewCell,
             let indexPath = tableView.indexPath(for: cell),
             let track = tracks?[indexPath.row]
         {
-            //Pass the selected movie to the details movies controller
-            let detailViewController = segue.destination as! DetailViewController
+            //Pass the selected track to the details track controller
+            let detailViewController = segue.destination as! TrackDetailViewController
             
             //There is a variable in the class that we want to send stuff to that we define here
             detailViewController.track = track
@@ -58,14 +58,14 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension TrackViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell") as! TrackCell
         
         if let track = tracks?[indexPath.row] {
             
@@ -78,5 +78,5 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
+extension TrackViewController: UITableViewDelegate {
 }

@@ -1,5 +1,5 @@
 //
-//  MovieDetailsViewController.swift
+//  TrackDetailsViewController.swift
 //  Flix
 //
 //  Created by Derek Chang on 1/27/19.
@@ -9,7 +9,7 @@
 import UIKit
 import Nuke
 
-class DetailViewController: UIViewController {
+class TrackDetailViewController: UIViewController {
 
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

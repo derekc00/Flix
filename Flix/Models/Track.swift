@@ -12,7 +12,7 @@ import Foundation
 /// NOTE: No initializer needed for structs. Memberwise initializer provided.
 /// see here: https://www.hackingwithswift.com/quick-start/understanding-swift/how-do-swifts-memberwise-initializers-work
 ///
-/// NOTE: class vs. structs for Movie object?
+/// NOTE: class vs. structs for Track object?
 /// apple docs recommend structs here
 /// see here: https://developer.apple.com/documentation/swift/choosing-between-structures-and-classes
 struct Track: Decodable {
@@ -30,16 +30,19 @@ struct Track: Decodable {
     var primaryGenreName: String
     
     func formattedReleaseDate() -> String {
+        /// Convert String to Date
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: self.releaseDate) ?? Date()
+        /// Convert Date to Abbreviated String
         dateFormatter.dateStyle = .medium
         return dateFormatter.string(from: date)
     }
     
     /// Converts milliseconds to mm:ss format
     ///  ex:  208643 -> "3:28"
+    ///  ex: 
     func formattedDuration() -> String {
         let (minutes, seconds) = self.trackTimeMillis.quotientAndRemainder(dividingBy: 60 * 1000)
         let truncatedSeconds = seconds / 1000
@@ -66,7 +69,7 @@ struct Track: Decodable {
 struct MusicResults: Decodable {
     var results: [Track]
     
-    /// NOTE: `codingKey` is not needed
+    /// NOTE: `codingKey` is not needed. If we want to rename the keys given by the json, then we will need it.
     /// see here: https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
 }
 

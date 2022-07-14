@@ -1,5 +1,5 @@
 //
-//  MovieCell.swift
+//  TrackCell.swift
 //  Flix
 //
 //  Created by Derek Chang on 1/12/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class TrackCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtextLabel: UILabel!

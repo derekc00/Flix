@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Needed to load movies on application launch. Calls API to parse and populate data
+        // Needed to load tracks on application launch. Calls API to parse and populate data
         if
             let tabBarController = window?.rootViewController as? UITabBarController,
             let navigationControllers = tabBarController.viewControllers as? [UINavigationController],
-            let songsViewController = navigationControllers.first?.viewControllers.first as? HomeViewController,
-            let albumsViewController = navigationControllers.last?.viewControllers.first as? GridViewController
+            let songsViewController = navigationControllers.first?.viewControllers.first as? TrackViewController,
+            let albumsViewController = navigationControllers.last?.viewControllers.first as? AlbumViewController
         {
             WebServices.loadTracks { (tracks, error) in
                 guard error == nil else {
