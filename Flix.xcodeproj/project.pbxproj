@@ -18,7 +18,6 @@
 		6D9B89D621EACF72001FEDDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D9B89D421EACF72001FEDDB /* LaunchScreen.storyboard */; };
 		6D9B89FA21EAD163001FEDDB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9B89F921EAD163001FEDDB /* HomeViewController.swift */; };
 		6D9B89FC21EAD824001FEDDB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9B89FB21EAD824001FEDDB /* TableViewCell.swift */; };
-		6DB419AE259EC1E000D0EEBD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB419AD259EC1E000D0EEBD /* Movie.swift */; };
 		6DB419B4259EE4EE00D0EEBD /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB419B3259EE4EE00D0EEBD /* Network.swift */; };
 		6DD15A3821FE5146007C9348 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD15A3721FE5146007C9348 /* DetailViewController.swift */; };
 		6DD15A3A21FE5AFF007C9348 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD15A3921FE5AFF007C9348 /* GridViewController.swift */; };
@@ -38,7 +37,6 @@
 		6D9B89D721EACF72001FEDDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D9B89F921EAD163001FEDDB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6D9B89FB21EAD824001FEDDB /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		6DB419AD259EC1E000D0EEBD /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		6DB419B3259EE4EE00D0EEBD /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6DD15A3721FE5146007C9348 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6DD15A3921FE5AFF007C9348 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 		6DB419AC259EC14C00D0EEBD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6DB419AD259EC1E000D0EEBD /* Movie.swift */,
 				655BD2EA287DE5370033EE5F /* Track.swift */,
 				655BD2D628768D8C0033EE5F /* WebServices.swift */,
 				6DB419B3259EE4EE00D0EEBD /* Network.swift */,
@@ -209,7 +206,6 @@
 			files = (
 				6DB419B4259EE4EE00D0EEBD /* Network.swift in Sources */,
 				655BD2EB287DE5370033EE5F /* Track.swift in Sources */,
-				6DB419AE259EC1E000D0EEBD /* Movie.swift in Sources */,
 				6DD15A3821FE5146007C9348 /* DetailViewController.swift in Sources */,
 				6D9B89CC21EACF70001FEDDB /* AppDelegate.swift in Sources */,
 				6D9B89FC21EAD824001FEDDB /* TableViewCell.swift in Sources */,
