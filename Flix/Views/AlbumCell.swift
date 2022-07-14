@@ -1,5 +1,5 @@
 //
-//  MovieGridCell.swift
+//  AlbumCell.swift
 //  Flix
 //
 //  Created by Derek Chang on 1/27/19.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class GridViewCell: UICollectionViewCell {
+class AlbumCell: UICollectionViewCell {
     @IBOutlet weak var backdropImageView: UIImageView!
 }
