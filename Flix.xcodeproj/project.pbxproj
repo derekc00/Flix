@@ -11,7 +11,6 @@
 		655BD2D728768D8C0033EE5F /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BD2D628768D8C0033EE5F /* WebServices.swift */; };
 		655BD2DD2876C5970033EE5F /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 655BD2DC2876C5970033EE5F /* Nuke */; };
 		655BD2EB287DE5370033EE5F /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BD2EA287DE5370033EE5F /* Track.swift */; };
-		655BD2ED287DE8BB0033EE5F /* Jack_Johnson_iTunes.json in Resources */ = {isa = PBXBuildFile; fileRef = 655BD2EC287DE8BB0033EE5F /* Jack_Johnson_iTunes.json */; };
 		6D9B89CC21EACF70001FEDDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9B89CB21EACF70001FEDDB /* AppDelegate.swift */; };
 		6D9B89D121EACF70001FEDDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D9B89CF21EACF70001FEDDB /* Main.storyboard */; };
 		6D9B89D321EACF72001FEDDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D9B89D221EACF72001FEDDB /* Assets.xcassets */; };
@@ -28,7 +27,6 @@
 		655BD2D428768BB10033EE5F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		655BD2D628768D8C0033EE5F /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		655BD2EA287DE5370033EE5F /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
-		655BD2EC287DE8BB0033EE5F /* Jack_Johnson_iTunes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Jack_Johnson_iTunes.json; path = ../../../../Jack_Johnson_iTunes.json; sourceTree = "<group>"; };
 		6D9B89C821EACF70001FEDDB /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9B89CB21EACF70001FEDDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D9B89D021EACF70001FEDDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 		6DB419C3259EF79F00D0EEBD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				655BD2EC287DE8BB0033EE5F /* Jack_Johnson_iTunes.json */,
 				6D9B89D221EACF72001FEDDB /* Assets.xcassets */,
 				6D9B89CF21EACF70001FEDDB /* Main.storyboard */,
 				6D9B89D421EACF72001FEDDB /* LaunchScreen.storyboard */,
@@ -192,7 +189,6 @@
 			files = (
 				6D9B89D621EACF72001FEDDB /* LaunchScreen.storyboard in Resources */,
 				6D9B89D321EACF72001FEDDB /* Assets.xcassets in Resources */,
-				655BD2ED287DE8BB0033EE5F /* Jack_Johnson_iTunes.json in Resources */,
 				6D9B89D121EACF70001FEDDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
